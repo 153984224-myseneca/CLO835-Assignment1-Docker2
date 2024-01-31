@@ -19,9 +19,9 @@ jobs:
     
     - name: Set timezone to Toronto
       run: |
-        ln -sf /usr/share/zoneinfo/America/Toronto /etc/localtime
-        apt-get update && apt-get install -y tzdata
-        dpkg-reconfigure --frontend noninteractive tzdata
+       sudo ln -sf /usr/share/zoneinfo/America/Toronto /etc/localtime
+       sudo  apt-get update && apt-get install -y tzdata
+       sudo dpkg-reconfigure --frontend noninteractive tzdata
 
     - name: Check out code
       uses: actions/checkout@v2
