@@ -49,6 +49,15 @@ COLOR = random.choice(["red", "green", "blue", "blue2", "darkblue", "pink", "lim
 def home():
     return render_template('addemp.html', color=color_codes[COLOR])
 
+# Catch-all route
+@app.route('/<path:path>', methods=['GET', 'POST'])
+def catch_all(path):
+    # You can either redirect to the home page
+    # return redirect(url_for('home'))
+
+    # Or render the same template as the home page
+    return render_template('addemp.html', color=color_codes[COLOR])
+    
 @app.route("/about", methods=['GET','POST'])
 def about():
     return render_template('about.html', color=color_codes[COLOR])
